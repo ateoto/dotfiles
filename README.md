@@ -1,0 +1,3 @@
+# Dotfiles
+
+```./bin/install.sh```
