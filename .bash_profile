@@ -7,6 +7,7 @@ export HISTSIZE=100000			# Big History
 export HISTFILESIZE=1000000		# Big History
 
 # Save and reload history after each command
+unset PROMPT_COMMAND
 export PROMPT_COMMAND="history -a;history -c;history -r; $PROMPT_COMMAND"
 
 # Add Go workspace to PATH
