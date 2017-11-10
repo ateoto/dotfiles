@@ -55,6 +55,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 	test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
+export PS1="\u: \w \\$ \[$(tput sgr0)\]"
 
 function agnostic-install() {
   PACKAGE="${1:-}"
