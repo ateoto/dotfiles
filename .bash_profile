@@ -46,6 +46,11 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "${HOME}/.config/iterm2"
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
+  if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    #shellcheck disable=SC1090
+    source "$(brew --prefix)/etc/bash_completion"
+  fi
+
 	#shellcheck disable=SC1090
 	test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
