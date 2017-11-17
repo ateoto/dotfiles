@@ -55,7 +55,13 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 	test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
-export PS1="\u: \w \\$ \[$(tput sgr0)\]"
+if [ "$TERM" != "linux" ]; then
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
+function _update_ps1() {
+  PS1="$(powerline-shell $?)"
+}
 
 function agnostic-install() {
   PACKAGE="${1:-}"
